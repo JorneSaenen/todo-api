@@ -12,6 +12,7 @@ returns array of todos
 returns single object todo
 ### Add todo
 /api/todos
+
 {
     "title": String,
     "completed": Boolean
@@ -20,6 +21,7 @@ returns single object todo
 returns the added todo object
 ### Update todo
 /api/todos/{id}
+
 {
     "completed": Boolean
 }
