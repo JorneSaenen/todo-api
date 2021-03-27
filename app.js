@@ -3,13 +3,14 @@ const express = require('express');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const mongoose = require('mongoose');
+const cors = require('cors');
 const DB = process.env.MONGODB_URL;
 
 const indexRouter = require('./routes/index');
 const todosRouter = require('./routes/api/todos');
 
 const app = express();
-
+app.options('*', cors());
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
