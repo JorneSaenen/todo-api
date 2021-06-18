@@ -1,21 +1,21 @@
 const express = require('express');
 const router = express.Router();
-const cors = require('cors');
+//const cors = require('cors');
 const Todos = require('../../models/Todo');
 
-router.get('/', cors(), (req, res) => {
+router.get('/',  (req, res) => {
   Todos.find()
     .then((data) => res.json(data))
     .catch((err) => res.status(500).json({ message: err }));
 });
 
-router.get('/:id', cors(), (req, res) => {
+router.get('/:id',  (req, res) => {
   Todos.findOne({ _id: req.params.id })
     .then((data) => res.json(data))
     .catch((err) => res.status(500).json({ message: err }));
 });
 
-router.post('/', cors(), (req, res) => {
+router.post('/', (req, res) => {
   const todo = new Todos({
     title: req.body.title,
     completed: req.body.completed,
@@ -28,13 +28,13 @@ router.post('/', cors(), (req, res) => {
     .catch((err) => res.status(500).json({ message: err }));
 });
 
-router.patch('/:id', cors(), (req, res) => {
+router.patch('/:id', (req, res) => {
   Todos.updateOne({ _id: req.params.id, completed: req.body.completed })
     .then((data) => res.json(data))
     .catch((err) => res.status(500).json({ message: err }));
 });
 
-router.delete('/:id', cors(), (req, res) => {
+router.delete('/:id', (req, res) => {
   Todos.deleteOne({ _id: req.params.id })
     .then((data) => res.json(data))
     .catch((err) => res.status(500).json({ message: err }));
