@@ -1,7 +1,5 @@
 # Todo API Syntra
 
-https://todo-api-syntra.herokuapp.com/
-
 ### Get all todos
 /api/todos
 
