@@ -1,4 +1,4 @@
-# Todo API Syntra
+# Todo API
 
 ### Get all todos
 /api/todos
